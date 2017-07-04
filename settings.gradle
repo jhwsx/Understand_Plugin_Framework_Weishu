@@ -1,1 +1,1 @@
-include ':dynamic-proxy-hook', ':binder-hook'
+include ':dynamic-proxy-hook', ':binder-hook', ':ams-pms-hook'

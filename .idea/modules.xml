@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Understand_Plugin_Framework_Weishu.iml" filepath="$PROJECT_DIR$/Understand_Plugin_Framework_Weishu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ams-pms-hook/ams-pms-hook.iml" filepath="$PROJECT_DIR$/ams-pms-hook/ams-pms-hook.iml" />
       <module fileurl="file://$PROJECT_DIR$/binder-hook/binder-hook.iml" filepath="$PROJECT_DIR$/binder-hook/binder-hook.iml" />
       <module fileurl="file://$PROJECT_DIR$/dynamic-proxy-hook/dynamic-proxy-hook.iml" filepath="$PROJECT_DIR$/dynamic-proxy-hook/dynamic-proxy-hook.iml" />
     </modules>
