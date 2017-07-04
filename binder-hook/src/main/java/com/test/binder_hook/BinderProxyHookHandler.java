@@ -21,15 +21,13 @@ public class BinderProxyHookHandler implements InvocationHandler {
     // 这个基本不可能
     IBinder mBase;
 
-    Class<?> mStub;
-
     Class<?> mIInterface;
 
     public BinderProxyHookHandler(IBinder base) {
         mBase = base;
+        Log.d(TAG, "mBase:" + mBase); // mBase:android.os.BinderProxy@6d77622
         try {
-            // 获取IClipboard$Stub的Class文件
-            mStub = Class.forName("android.content.IClipboard$Stub");
+
             // 获取IClipboard的Class文件
             mIInterface = Class.forName("android.content.IClipboard");
         } catch (ClassNotFoundException e) {
@@ -53,8 +51,8 @@ public class BinderProxyHookHandler implements InvocationHandler {
 
                     // asInterface 的时候会检测是否是特定类型的接口然后进行强制转换
                     // 因此这里的动态代理生成的类型信息的类型必须是正确的
-                    new Class[] { IBinder.class, IInterface.class, this.mIInterface },
-                    new BinderHookHandler(mBase, mStub));
+                    new Class[] { IBinder.class, IInterface.class, this.mIInterface },// TODO 这里为什么要写这么多接口呢?奇怪!
+                    new BinderHookHandler(mBase));
         }
 
         Log.d(TAG, "method:" + method.getName());
