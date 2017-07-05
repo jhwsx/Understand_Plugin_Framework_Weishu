@@ -53,11 +53,14 @@ public class HookHelper {
             // 获取sCurrentActivityThread对象
             Object sCurrentActivityThreadObj = currentActivityThreadMethod.invoke(null);
 
-            // 获取IPackageManager的原始对象 todo 可不可以通过反射getPackageManager()方法来获取呢?
+            // 获取IPackageManager的原始对象 也可以通过反射getPackageManager()方法来获取
             Field sPackageManagerField = activityThreadClass.getDeclaredField("sPackageManager");
             sPackageManagerField.setAccessible(true);
             Object sPackageManagerObj = sPackageManagerField.get(sCurrentActivityThreadObj); // sPackageManagerObj是android.content.pm.IPackageManager$Stub$Proxy对象
 
+//            // 获取getPackageManager()的Method对象
+//            Method getPacakageManagerMethod = activityThreadClass.getMethod("getPackageManager");
+//            Object sPackageManagerObj =  getPacakageManagerMethod.invoke(null);
             // 获取IPackageManager的代理对象
             Object hookIPackageManager = Proxy.newProxyInstance(sPackageManagerObj.getClass().getClassLoader(),
                     new Class[]{Class.forName("android.content.pm.IPackageManager")},
