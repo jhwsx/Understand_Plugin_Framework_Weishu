@@ -49,6 +49,18 @@ public class TargetActivity extends Activity {
         Log.d(TAG, "onStop");
     }
 
+    // finish()方法的调用过程
+    // APP进程 Activity finish()
+    // AMS进程 ActivityManagerService  public final boolean finishActivity(IBinder token, int resultCode, Intent resultData,boolean finishTask)
+    // AMS进程 ActivityStack final boolean requestFinishActivityLocked(IBinder token, int resultCode,Intent resultData, String reason, boolean oomAdj)
+    // AMS进程 ActivityStack final boolean finishActivityLocked(ActivityRecord r, int resultCode, Intent resultData,String reason, boolean oomAdj)
+    // AMS进程 ActivityStack final ActivityRecord finishCurrentActivityLocked(ActivityRecord r, int mode, boolean oomAdj)
+    // AMS进程 ActivityStack final boolean destroyActivityLocked(ActivityRecord r, boolean removeFromApp, String reason)
+    // APP进程 ApplicationThread  public final void scheduleDestroyActivity(IBinder token, boolean finishing,int configChanges)
+    // APP进程 ActivityThread private void handleDestroyActivity(IBinder token, boolean finishing,int configChanges, boolean getNonConfigInstance)
+    // APP进程 ActivityThread private ActivityClientRecord performDestroyActivity(IBinder token, boolean finishing,int configChanges, boolean getNonConfigInstance)
+    // APP进程 Instrumentation public void callActivityOnDestroy(Activity activity)
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
