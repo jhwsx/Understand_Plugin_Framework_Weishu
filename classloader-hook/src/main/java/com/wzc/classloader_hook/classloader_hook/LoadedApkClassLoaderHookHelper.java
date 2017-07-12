@@ -1,7 +1,6 @@
 package com.wzc.classloader_hook.classloader_hook;
 
 import android.content.pm.ApplicationInfo;
-import android.support.annotation.NonNull;
 
 import com.wzc.classloader_hook.Utils;
 
@@ -67,7 +66,7 @@ public class LoadedApkClassLoaderHookHelper {
         }
     }
 
-    private static Object getLoadedApk(File packageFile, Class<?> activityThreadClass, Object sCurrentActivityThreadObj) throws ClassNotFoundException, NoSuchMethodException, NoSuchFieldException, IllegalAccessException, InstantiationException, InvocationTargetException {
+    private static Object getLoadedApk(File packageFile, Class<?> activityThreadClass, Object sCurrentActivityThreadObj) throws Exception {
         // 创建一个插件信息的LoadedApk对象
 
         // 使用ActivityThread类的 public final LoadedApk getPackageInfoNoCheck(ApplicationInfo ai,CompatibilityInfo compatInfo)
@@ -92,7 +91,6 @@ public class LoadedApkClassLoaderHookHelper {
         return loadedApkObj;
     }
 
-    @NonNull
     private static ApplicationInfo getApplicationInfo(File packageFile) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         // 获取generateApplicationInfo方法的Method对象
         // 获取PackageParser类的Class文件
