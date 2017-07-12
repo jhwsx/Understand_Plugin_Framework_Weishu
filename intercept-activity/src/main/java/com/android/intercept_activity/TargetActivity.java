@@ -2,7 +2,6 @@ package com.android.intercept_activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 /**
@@ -13,7 +12,7 @@ import android.util.Log;
 public class TargetActivity extends Activity {
     public static final String TAG = "TargetActivity";
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_target);
         Log.d(TAG, "onCreate");
