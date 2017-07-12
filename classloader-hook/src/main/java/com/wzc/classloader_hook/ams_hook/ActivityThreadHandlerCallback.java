@@ -71,6 +71,7 @@ public class ActivityThreadHandlerCallback implements Handler.Callback {
 
                 activityInfo.applicationInfo.packageName = rawIntent.getPackage() == null ?
                         rawIntent.getComponent().getPackageName() : rawIntent.getPackage();
+                // TODO 不增加此方法,却没有出现作者所说的 java.lang.RuntimeException: Unable to start activity ComponentInfo {com.weishu.upf.ams_pms_hook.app/com.weishu.upf.ams_pms_hook.app.MainActivity}: java.lang.RuntimeException: Unable to instantiate application android.app.Application: java.lang.IllegalStateException: Unable to get package info for com.weishu.upf.ams_pms_hook.app; is package not installed?
 
                 hookPackageManager();
 //            }
